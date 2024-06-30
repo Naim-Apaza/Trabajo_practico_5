@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head data-th-replace="~{/layouts/header :: head}"></head>
+
+<body>
+	<header data-th-replace="~{/layouts/header :: header}"></header>
+
+	<main class="container">
+      <section class="table-responsive-md">
+      	<h2>Alumnos</h2>
+        <a class="btn btn-outline-secondary my-4" data-th-href="@{/alumno/nuevo}" role="button"
+          >Agregar Alumno</a
+        >
+        <table
+          class="table table-sm table-hover table-bordered table-secondary align-botton"
+        >
+          <thead class="table-light">
+            <caption>
+              Alumnos
+            </caption>
+            <tr>
+              <th>DNI</th>
+              <th>Nombre</th>
+              <th>Apellido</th>
+              <th>Email</th>
+              <th>Telefono</th>
+              <th>Domicilio</th>
+              <th>LU</th>
+              <th>Nacimiento</th>
+              <th>Opciones</th>
+            </tr>
+          </thead>
+          <tbody class="table-group-divider">
+            <tr class="table-secondary" data-th-each="a : ${alumnos}">
+              <td data-th-text="${a.dni}" scope="row"></td>
+              <td data-th-text="${a.nombre}"></td>
+              <td data-th-text="${a.apellido}"></td>
+              <td data-th-text="${a.email}"></td>
+              <td data-th-text="${a.telefono}"></td>
+              <td data-th-text="${a.domicilio}"></td>
+              <td data-th-text="${a.lu}"></td>
+              <td data-th-text="${a.fechaNacimiento}"></td>
+              <td>
+                <a class="btn btn-warning col-6" data-th-href="@{/alumno/editar/} + ${a.dni}" role="button"
+                  >Editar</a
+                >
+                <a class="btn btn-danger col-6" data-th-href="@{/alumno/eliminar/} + ${a.dni}" role="button"
+                  >Eliminar</a
+                >
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+
+	<footer data-th-replace="~{/layouts/footer :: footer}"></footer>
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head data-th-replace="~{/layouts/header :: head}"></head>
+<body>
+	<header th:replace="~{/layouts/header :: header}"></header>
+	<div class="container py-3">
+		<div class="row">
+			<div class="col-12 col-xl-2 col-md-4 py-2">
+				<ul class="list-unstyled list-group">
+					<li
+						class="text-light p-1 text-center fs-5 bg-info list-group-item itemsh">
+						ALUMNOS</li>
+					<li class="listNav text-secondary list-group-item"><a
+						class="link-dark link-opacity-75-hover link-underline-opacity-0"
+						href="#">AULAS VIRTUALES</a></li>
+					<li class="listNav text-secondary list-group-item"><a
+						class="link-dark link-opacity-75-hover link-underline-opacity-0"
+						href="#">INSTRUCCIONES SIU</a></li>
+					<li class="listNav text-secondary list-group-item"><a
+						class="link-dark link-opacity-75-hover link-underline-opacity-0"
+						href="#">Ver mas..</a></li>
+				</ul>
+			</div>
+			<div class="col-12 col-xl-2 col-md-4 py-2">
+				<ul class="list-unstyled list-group">
+					<li
+						class="text-light p-1 text-center list-group-item fs-5 bg-success">
+						EGRESADOS</li>
+					<li class="listNav text-secondary list-group-item"><a
+						class="link-dark link-opacity-75-hover link-underline-opacity-0"
+						href="#">DEFENSA DE TESIS</a></li>
+					<li class="listNav text-secondary list-group-item"><a
+						class="link-dark link-opacity-75-hover link-underline-opacity-0"
+						href="#">TRAMITACION DE TITULO</a></li>
+					<li class="listNav text-secondary list-group-item"><a
+						class="link-dark link-opacity-75-hover link-underline-opacity-0"
+						href="#">Ver mas..</a></li>
+				</ul>
+			</div>
+			<div class="col-12 col-xl-2 col-md-4 py-2">
+				<ul class="list-unstyled list-group">
+					<li class="text-light p-1 text-center list-group-item fs-5 bg-dark">
+						DOCENTES</li>
+					<li class="listNav text-secondary list-group-item"><a
+						class="link-dark link-opacity-75-hover link-underline-opacity-0"
+						href="#">NOVEDADES</a></li>
+					<li class="listNav text-secondary list-group-item"><a
+						class="link-dark link-opacity-75-hover link-underline-opacity-0"
+						href="#">CONCURSO</a></li>
+					<li class="listNav text-secondary list-group-item"><a
+						class="link-dark link-opacity-75-hover link-underline-opacity-0"
+						href="#">Ver mas..</a></li>
+				</ul>
+			</div>
+			<div class="col-12 col-xl-2 col-md-4 py-2">
+				<ul class="list-unstyled list-group">
+					<li
+						class="text-light p-1 text-center list-group-item fs-5 bg-danger">
+						POSGRADO</li>
+					<li class="listNav text-secondary list-group-item"><a
+						class="link-dark link-opacity-75-hover link-underline-opacity-0"
+						href="#">NOVEDADES</a></li>
+					<li class="listNav text-secondary list-group-item"><a
+						class="link-dark link-opacity-75-hover link-underline-opacity-0"
+						data-th-href="@{/carrera/listado}">CARRERAS</a></li>
+					<li class="listNav text-secondary list-group-item"><a
+						class="link-dark link-opacity-75-hover link-underline-opacity-0"
+						href="#">Ver mas..</a></li>
+				</ul>
+			</div>
+			<div class="col-12 col-xl-2 col-md-4 py-2">
+				<ul class="list-unstyled list-group">
+					<li
+						class="text-light p-1 text-center list-group-item fs-5 bg-secondary">
+						INVESTIGACIÓN</li>
+					<li class="listNav text-secondary list-group-item"><a
+						class="link-dark link-opacity-75-hover link-underline-opacity-0"
+						href="#">NOVEDADES</a></li>
+					<li class="listNav text-secondary list-group-item"><a
+						class="link-dark link-opacity-75-hover link-underline-opacity-0"
+						href="#">SECTER</a></li>
+					<li class="listNav text-secondary list-group-item"><a
+						class="link-dark link-opacity-75-hover link-underline-opacity-0"
+						href="#">Ver mas..</a></li>
+				</ul>
+			</div>
+			<div class="col-12 col-xl-2 col-md-4 py-2">
+				<ul class="list-unstyled list-group">
+					<li
+						class="text-light p-1 text-center list-group-item fs-5 bg-warning">
+						INGRESANTES</li>
+					<li class="listNav text-secondary list-group-item"><a
+						class="link-dark link-opacity-75-hover link-underline-opacity-0"
+						href="#">INGRESO 2024</a></li>
+					<li class="listNav text-secondary list-group-item"><a
+						class="link-dark link-opacity-75-hover link-underline-opacity-0"
+						href="#">LU 2024</a></li>
+					<li class="listNav text-secondary list-group-item"><a
+						class="link-dark link-opacity-75-hover link-underline-opacity-0"
+						href="#">TFC 2do Cuatrimestre</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<main class="container shadow-sm py-5">
+		<div class="d-flex flex-column align-items-center">
+			<hgroup class="w-75 mb-4">
+				<h2 class="text-body-tertiary">Bienvenidos a la Facultad de
+					Ingeniería</h2>
+				<p class="text-body-secondary">La Universidad Nacional de Jujuy
+					(UNJu) es una universidad pública en San Salvador de Jujuy,
+					Argentina. Fundada en 1973, cuenta con cuatro facultades y cinco
+					institutos, con alrededor de 25,000 estudiantes y 40,000 usuarios
+					en su plataforma virtual. Desde 2014, el rector es el Licenciado
+					Rodolfo Tecchi.</p>
+			</hgroup>
+			<div id="carouselId" class="carousel slide w-75 shadow"
+				data-bs-ride="carousel">
+				<div class="carousel-inner" role="listbox">
+					<div class="carousel-item active">
+						<img
+							src="https://fi.unju.edu.ar/cache/lofthumbs/750x330-Curso-Posgrado-Fisicoquimica.jpg"
+							class="w-100 d-block" alt="First slide" />
+						<div
+							class="carousel-caption d-none d-md-block bg-dark bg-opacity-75">
+							<h3>Curso de posgrado "Fisicoquímica" | Especialización en
+								Enseñanza de las Cs. Exactas y Naturales</h3>
+							<p>Curso de Posgrado "Fisicoquímica" La inscripción al curso
+								se realiza completando el siguiente...</p>
+						</div>
+					</div>
+					<div class="carousel-item">
+						<img
+							src="https://fi.unju.edu.ar/cache/lofthumbs/750x330-Ingeniavoz-2024-01.png"
+							class="w-100 d-block" alt="Second slide" />
+						<div
+							class="carousel-caption d-none d-md-block bg-dark bg-opacity-75">
+							<h3>CADI - CAEDI | Reunión Informativa IngeniaVoz 24/05
+								16:30hs</h3>
+							<p>El Comité Organizador del CADI-CAEDI 2024 invita a los/as
+								estudiantes a la convocatoria de...</p>
+						</div>
+					</div>
+					<div class="carousel-item">
+						<img
+							src="https://fi.unju.edu.ar/cache/lofthumbs/750x330-FB_IMG_1716512587421.jpg"
+							class="w-100 d-block" alt="Third slide" />
+						<div
+							class="carousel-caption d-none d-md-block bg-dark bg-opacity-75">
+							<h3>52° Aniversario de la Facultad de Ingeniería de la UNJu</h3>
+							<p>📣 ¡52° Aniversario de nuestra querida Facultad de
+								Ingeniería! Y lo festeja con una riquísima...</p>
+						</div>
+					</div>
+				</div>
+				<button class="carousel-control-prev" type="button"
+					data-bs-target="#carouselId" data-bs-slide="prev">
+					<span class="carousel-control-prev-icon bg-dark rounded-5"
+						aria-hidden="true"></span> <span class="visually-hidden">Previous</span>
+				</button>
+				<button class="carousel-control-next" type="button"
+					data-bs-target="#carouselId" data-bs-slide="next">
+					<span class="carousel-control-next-icon bg-black rounded-5"
+						aria-hidden="true"></span> <span class="visually-hidden">Next</span>
+				</button>
+			</div>
+		</div>
+	</main>
+
+	<footer data-th-replace="~{/layouts/footer :: footer}"></footer>
+</body>
+</html>

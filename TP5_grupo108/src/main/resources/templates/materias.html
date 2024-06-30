@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head data-th-replace="~{/layouts/header :: head}"></head>
+
+<body>
+	<header data-th-replace="~{/layouts/header :: header}"></header>
+
+	<main class="container">
+      <h2>Materias</h2>
+
+      <section class="table-responsive">
+        <a class="btn btn-outline-secondary my-4" data-th-href="@{/materia/nuevo}" role="button"
+          >Agregar Materia</a
+        >
+
+        <table
+          class="table table-striped table-hover table-bordered table-light align-middle"
+        >
+          <thead class="table-light">
+            <caption>
+              Materias
+            </caption>
+            <tr>
+              <th>Codigo</th>
+              <th>Nombre</th>
+              <th>Curso</th>
+              <th>Cant. horas</th>
+              <th>Modalidad</th>
+              <th>Docente</th>
+              <th>Carrera</th>
+              <th>Opciones</th>
+            </tr>
+          </thead>
+          <tbody class="table-group-divider">
+            <tr data-th-each="m : ${materias}" class="table-light">
+              <td data-th-text="${m.codigo}" scope="row"></td>
+              <td data-th-text="${m.nombre}"></td>
+              <td data-th-text="${m.curso}"></td>
+              <td data-th-text="${m.cantidadHoras}"></td>
+              <td>
+              	<span th:if="${m.modalidad}">Presencial</span>
+				<span th:if="${!m.modalidad}">Virtual</span>
+              </td>
+              <td data-th-text="${m.docente}"></td>
+              <td data-th-text="${m.carrera}"></td>
+              <td>
+                <a class="btn btn-warning col-6" data-th-href="@{/materia/editar/} + ${m.codigo}" role="button"
+                  >Editar</a
+                >
+                <a class="btn btn-danger col-6" data-th-href="@{/materia/eliminar/} + ${m.codigo}" role="button"
+                  >Eliminar</a
+                >
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+
+	<footer data-th-replace="~{/layouts/footer :: footer}"></footer>
+</body>
+</html>

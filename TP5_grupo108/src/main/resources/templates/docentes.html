@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head data-th-replace="~{/layouts/header :: head}"></head>
+
+<body>
+	<header data-th-replace="~{/layouts/header :: header}"></header>
+	
+	<main class="container">
+	<h2>Lista de docentes</h2>
+      <section class="table-responsive-md">
+      <a class="btn btn-outline-secondary my-4" data-th-href="@{/docente/nuevo}" role="button"
+          >Agregar Docente</a
+        >
+        <table
+          class="table table-sm table-hover table-bordered table-secondary align-botton"
+        >
+          <thead class="table-light">
+            <caption>
+              Docentes
+            </caption>
+            <tr>
+              <th>Legajo</th>
+              <th>Nombre</th>
+              <th>Apellido</th>
+              <th>Telefono</th>
+              <th>Email</th>
+              <th>Opciones</th>
+            </tr>
+          </thead>
+          <tbody class="table-group-divider">
+            <tr class="table-secondary" data-th-each="d : ${docentes}">
+              <td data-th-text="${d.legajo}" scope="row"></td>
+              <td data-th-text="${d.nombre}"></td>
+              <td data-th-text="${d.apellido}"></td>
+              <th data-th-text="${d.telefono}"></th>
+              <th data-th-text="${d.email}"></th>
+              <th>
+              	<a class="btn btn-warning d-inline" data-th-href="@{/docente/editar/} + ${d.legajo}" role="button"
+                  >Editar</a
+                >
+                <a class="btn btn-danger d-inline" data-th-href="@{/docente/eliminar/} + ${d.legajo}" role="button"
+                  >Eliminar</a
+                >
+              </th>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+
+	<footer data-th-replace="~{/layouts/footer :: footer}"></footer>
+</body>
+</html>

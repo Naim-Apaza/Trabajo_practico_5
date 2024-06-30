@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head data-th-replace="~{/layouts/header :: head}"></head>
+
+<body>
+	<header data-th-replace="~{/layouts/header :: header}"></header>
+	
+	<main class="container">
+      <section aria-labelledby="form-title" class="my-3">
+        <h1 id="form-title" class="text-center">Formulario de Docente</h1>
+        <form class="row"
+        	  method="post"
+        	  th:action="${edicion} ? @{/docente/editar} : @{/docente/guardar}"
+        	  th:object="${docente}">
+          <fieldset class="mb-3 col-md-6 col-12">
+            <legend>Información del docente</legend>
+            <div th:if="${edicion}" class="mb-3">
+              <label for="legajo" class="form-label">Legajo</label>
+              <input
+                type="text"
+                class="form-control form-control-sm"
+                name="legajo"
+                id="legajo"
+                data-th-value="${docente.legajo}"
+                th:field="*{legajo}"
+                readonly
+              />
+            </div>
+            <div class="mb-3">
+              <label for="nombre" class="form-label">Nombre</label>
+              <input
+                type="text"
+                class="form-control form-control-sm"
+                name="nombre"
+                id="nombre"
+                placeholder="Ariel"
+                data-th-value="${edicion} ? ${docente.nombre} : ''"
+                th:field="*{nombre}"
+                required
+              />
+              <small class="form-text text-muted">Nombre del docente</small>
+            </div>
+            <div class="mb-3">
+              <label for="apellido" class="form-label">Apellido</label>
+              <input
+                type="text"
+                class="form-control form-control-sm"
+                name="apellido"
+                id="apellido"
+                placeholder="Vega"
+                data-th-value="${edicion} ? ${docente.apellido} : ''"
+                th:field="*{apellido}"
+                required
+              />
+              <small class="form-text text-muted">Apellido del docente</small>
+            </div>
+          </fieldset>
+          <fieldset class="mb-3 col-md-6 col-12">
+            <legend>Información de comunicación</legend>
+            <div class="mb-3">
+              <label for="telefono" class="form-label">Telefono</label>
+              <input
+                type="tel"
+                class="form-control form-control-sm"
+                name="telefono"
+                id="telefono"
+                placeholder="3885448221"
+                data-th-value="${edicion} ? ${docente.telefono} : ''"
+                th:field="*{telefono}"
+                required
+              />
+              <small class="form-text text-muted">Telefono del docente</small>
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input
+                type="text"
+                class="form-control form-control-sm"
+                name="email"
+                id="email"
+                placeholder="vega@gmail.com"
+                data-th-value="${edicion} ? ${docente.email} : ''"
+                th:field="*{email}"
+                required
+              />
+              <small class="form-text text-muted">Email del docente</small>
+            </div>
+          </fieldset>
+          <div class="col-12 text-center">
+
+              <button type="submit" class="btn btn-outline-success">Enviar</button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+	<footer data-th-replace="~{/layouts/footer :: footer}"></footer>
+</body>
+</html>

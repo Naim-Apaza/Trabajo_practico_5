@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head data-th-replace="~{/layouts/header :: head}"></head>
+
+<body>
+	<header data-th-replace="~{/layouts/header :: header}"></header>
+
+	<main class="container">
+      <section aria-labelledby="form-title" class="my-3">
+        <h1 id="form-title" class="text-center">Formulario del Alumno</h1>
+        <form class="row"
+        	  method="post"
+        	  th:action="${edicion} ? @{/alumno/editar} : @{/alumno/guardar}"
+        	  th:object="${alumno}">
+          <fieldset class="mb-3 col-md-6 col-12">
+            <legend>Información del docente</legend>
+            <div class="row">
+              <div class="mb-3 col-xl-6 col-12">
+                <label for="legajo" class="form-label">DNI</label>
+                <input
+                  type="text"
+                  class="form-control form-control-sm"
+                  name="legajo"
+                  id="legajo"
+                  data-th-readonly="${edicion}"
+                  th:field="*{dni}"
+                />
+              </div>
+              <div class="mb-3 col-xl-6 col-12">
+                <label for="lu" class="form-label">LU</label>
+                <input
+                  type="text"
+                  class="form-control form-control-sm"
+                  name="lu"
+                  id="lu"
+                  data-th-readonly="${edicion}"
+                  th:field="*{lu}"
+                />
+              </div>
+            </div>
+            <div class="row">
+              <div class="mb-3 col-xl-6 col-12">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input
+                  type="text"
+                  class="form-control form-control-sm"
+                  name="nombre"
+                  id="nombre"
+                  placeholder="Jose"
+                  th:field="*{nombre}"
+                />
+                <small class="form-text text-muted">Nombre del Alumno</small>
+              </div>
+              <div class="mb-3 col-xl-6 col-12">
+                <label for="apellido" class="form-label">Apellido</label>
+                <input
+                  type="text"
+                  class="form-control form-control-sm"
+                  name="apellido"
+                  id="apellido"
+                  placeholder="Quispe"
+                  th:field="*{apellido}"
+                />
+                <small class="form-text text-muted">Apellido del Alumno</small>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="mb-3 col-xl-6 col-12">
+                <label for="domicilio" class="form-label">Domicilio</label>
+                <input
+                  type="text"
+                  class="form-control form-control-sm"
+                  name="domicilio"
+                  id="domicilio"
+                  placeholder="Av. Alvear 123"
+                  th:field="*{domicilio}"
+                />
+                <small class="form-text text-muted">Domicilio del Alumno</small>
+              </div>
+              <div class="mb-3 col-xl-6 col-12">
+                <label for="nacimiento" class="form-label"
+                  >Fecha de nacimiento</label
+                >
+                <input
+                  type="date"
+                  class="form-control form-control-sm"
+                  name="nacimiento"
+                  id="nacimiento"
+                  th:field="*{fechaNacimiento}"
+                />
+                <small class="form-text text-muted"
+                  >Nacimiento del Alumno</small
+                >
+              </div>
+            </div>
+          </fieldset>
+          <fieldset class="mb-3 col-md-6 col-12">
+            <legend>Información de comunicación</legend>
+            <div class="mb-3">
+              <label for="telefono" class="form-label">Telefono</label>
+              <input
+                type="tel"
+                class="form-control form-control-sm"
+                name="telefono"
+                id="telefono"
+                placeholder="3885448221"
+                th:field="*{telefono}"
+              />
+              <small class="form-text text-muted">Telefono del Alumno</small>
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input
+                type="text"
+                class="form-control form-control-sm"
+                name="email"
+                id="email"
+                placeholder="alumno@gmail.com"
+                th:field="*{email}"
+              />
+              <small class="form-text text-muted">Email del Alumno</small>
+            </div>
+          </fieldset>
+          <div class="col-12 text-center">
+            <button type="submit" class="btn btn-outline-success">
+              Enviar
+            </button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+	<footer data-th-replace="~{/layouts/footer :: footer}"></footer>
+</body>
+</html>

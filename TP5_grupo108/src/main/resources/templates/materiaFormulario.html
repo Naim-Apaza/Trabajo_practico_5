@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head data-th-replace="~{/layouts/header :: head}"></head>
+
+<body>
+	<header data-th-replace="~{/layouts/header :: header}"></header>
+
+	<main class="container">
+		<section aria-labelledby="form-title" class="my-3">
+			<h1 id="form-title" class="text-center">Formulario de Materia</h1>
+			<form class="d-flex flex-column align-items-center" method="post"
+				th:action="${edicion} ? @{/materia/editar} : @{/materia/guardar}"
+				th:object="${materia}">
+				<fieldset class="mb-3">
+					<legend>Información de la Materia</legend>
+					<div class="mb-3" th:if="${edicion}">
+						<label for="nombre" class="form-label">Codigo</label> <input
+							type="text" class="form-control form-control-sm" name="codigo"
+							id="codigo" data-th-value="${materia.codigo}" disabled />
+					</div>
+					<div class="mb-3">
+						<label for="nombre" class="form-label">Nombre</label> <input
+							type="text" class="form-control form-control-sm" name="nombre"
+							id="nombre" placeholder="Base de datos"
+							th:field="*{nombre}"
+							required />
+						<small class="form-text text-muted">Nombre
+							de la materia</small>
+					</div>
+				</fieldset>
+
+				<fieldset class="mb-3">
+					<legend>Detalles del Curso</legend>
+					<div>
+						<div class="col">
+							<div class="mb-3">
+								<label for="curso" class="form-label">Curso</label> <input
+									type="text" name="curso" id="curso" class="form-control"
+									placeholder="C1"
+									th:field="*{curso}"
+									required />
+								<small class="text-muted">C1
+									(Comisión 1)</small>
+							</div>
+						</div>
+
+						<div class="col">
+							<div class="mb-3">
+								<label for="cantHora" class="form-label">Cantidad
+									de horas</label> <input type="number" name="cantHora" id="cantHora"
+									class="form-control" placeholder="6"
+									th:field=*{cantidadHoras}
+									required />
+								<small class="text-muted">Solo
+									números enteros</small>
+							</div>
+						</div>
+					</div>
+				</fieldset>
+
+				<fieldset class="mb-3">
+					<legend>Modalidad</legend>
+					<div>
+						<div class="form-check form-check-inline">
+							<input class="form-check-input" type="radio" name="modalidad"
+								id="Virtual" value="false"
+								th:field=*{modalidad}
+								required />
+							<label class="form-check-label" for="Virtual">Virtual</label>
+						</div>
+						<div class="form-check form-check-inline">
+							<input class="form-check-input" type="radio" name="modalidad"
+								id="presencial" value="true"
+								th:field=*{modalidad}
+								required />
+							<label class="form-check-label" for="presencial">Presencial</label>
+						</div>
+						<small class="form-text text-muted">Seleccione
+							la modalidad</small>
+					</div>
+				</fieldset>
+
+				<fieldset class="mb-3">
+					<legend>Selección de Docente y Carrera</legend>
+					<div class="mb-3">
+						<label for="docente" class="form-label">Docente</label> <select
+							class="form-select form-select-sm" name="docente" id="docente"
+							aria-describedby="docenteHelp"
+							required>
+							<option selected disabled>Seleccione</option>
+							<option data-th-each="d : ${docentes}"
+								data-th-value="${d.legajo}"
+								data-th-text="${d.nombre} + ' ' + ${d.apellido}"
+								></option>
+						</select> <small id="docenteHelp" class="form-text text-muted">Seleccione
+							un docente</small>
+					</div>
+
+					<div class="mb-3">
+						<label for="carrera" class="form-label">Carrera</label> <select
+							class="form-select form-select-sm" name="carrera" id="carrera"
+							aria-describedby="carreraHelp"
+							required>
+							<option selected disabled>Seleccione</option>
+							<option data-th-each="c : ${carreras}"
+								data-th-value="${c.codigo}" data-th-text="${c.nombre}"
+								></option>
+						</select> <small id="carreraHelp" class="form-text text-muted">Seleccione
+							una carrera</small>
+					</div>
+				</fieldset>
+
+				<button type="submit" class="btn btn-outline-success">
+					Enviar</button>
+			</form>
+		</section>
+	</main>
+
+	<footer data-th-replace="~{/layouts/footer :: footer}"></footer>
+</body>
+</html>
